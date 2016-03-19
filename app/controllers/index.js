@@ -2,23 +2,24 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   filteredList: null,
+
   actions: {
     autoComplete(param) {
       if (param !== "") {
-        this.store.query('rental', {city: param}).then((result) => {
-          this.set('filteredList', result);
+        this.store.query('rental', { city: param }).then((result) => {
+          this.set('filteredList', result.toArray());
         });
       } else {
-        this.set('filteredList').clear();
+        this.get('filteredList').clear();
       }
     },
     search(param) {
       if (param !== "") {
         this.store.query('rental', {city: param}).then((result) => {
-          this.set('model', result);
+          this.set('model', result.toArray());
         });
       } else {
-        this.set('model').clear();
+        this.get('model').clear();
       }
     }
   }
