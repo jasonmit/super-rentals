@@ -1,0 +1,10 @@
+<h3>{{rental.title}}</h3>
+<p>Owner: {{rental.owner}}</p>
+<p>Type: {{rental-property-type rental.type}} - {{rental.type}}</p>
+<p>Location: {{rental.city}}</p>
+{{#if isBedroomsShowing}}
+  <p>Number of Bedrooms: {{rental.bedrooms}}</p>
+  <button {{action "imageHide"}}>Hide Bedrooms</button>
+{{else}}
+  <button {{action "imageShow"}}>Show Bedrooms</button>
+{{/if}}

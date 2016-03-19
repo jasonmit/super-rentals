@@ -1,0 +1,8 @@
+City: {{input value=filter key-up=(action 'autoComplete' filter)}}
+<button {{action 'search'}}>Search</button>
+
+<ul>
+  {{#each filteredList as |item|}}
+    <a href="#" {{action 'choose' item.city}}>{{item.city}}</a><br/>
+  {{/each}}
+</ul>
